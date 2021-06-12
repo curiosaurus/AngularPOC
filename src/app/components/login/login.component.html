@@ -1,0 +1,29 @@
+<div class="container margin">
+    <div class="row" *ngIf="!token">  
+        <div class="col-md-6 offset-md-3">
+            <h3>Login</h3>
+            <form #loginForm (ngSubmit)="submitForm()">
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" name="email" [(ngModel)]="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" [(ngModel)]="password" required minlength="5">
+                    <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                        <div *ngIf="password.errors.required">This field is required.</div>
+                        <div *ngIf="password.errors.minlength">Enter atleast 5 characters.</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary size" [disabled]="loginForm.invalid">Submit</button>
+
+
+            </form>
+        </div>
+    </div>
+    <div class="row" *ngIf="token">
+        <button type="button" class="button is-large is-warning center" (click)="Logout()">Logout</button>
+    </div>
+</div>

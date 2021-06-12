@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>ebasket</title>
+
+</head>
+
+<body>
+
+  <!-- Page Content -->
+  <div class="container margin">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <h1 class="my-4">eBasket</h1> 
+        <div class="list-group" *ngFor="let category of category">
+          <a [routerLink]="['']" [queryParams]="{category:category}" (click)="filter()" class="list-group-item">{{category}}</a>
+        </div>
+
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+
+        <div class="row" *ngIf="len">
+
+          <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of res2">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="{{product.image}}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a [routerLink]="['/product']" [queryParams]="{id:product.id}">{{ product.name }}</a>
+                </h4>
+                <h5 style="color: crimson;">₹{{ product.price }}</h5>
+                <p class="card-text">{{ product.description}}</p>
+              </div>
+              <button type="button" class="button is-large is-warning" (click)="addCart(product.id)">Add to Cart</button>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.row -->
+        <div class="row" *ngIf="!len">
+          <h2>No Products Yet</h2>
+        </div>
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+</body>
+
+</html>

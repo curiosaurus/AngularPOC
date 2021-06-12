@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Shop Item</title>
+
+</head>
+
+<body>
+
+  <!-- Page Content -->
+  <div class="container margin">
+
+    <div class="row">
+
+      <div class="col-lg-5">
+
+        <div class="card mt-4">
+          <img class="card-img-top img-fluid" src="{{res2.image}}" height="50"  alt="">
+          <div class="card-body" *ngIf="res2">
+            
+            
+            <p class="card-text">{{res2.description}}</p>
+          </div>
+          <button type="button" class="button is-large is-warning" (click)="addCart()">Add to Cart</button>
+        </div>
+        <!-- /.card -->
+
+      </div>
+
+      <!-- /.col-lg-9 -->
+      <div class="col-lg-4">
+        <h1>
+          {{res2.name}}
+        </h1>
+        <br><br>
+
+
+        <h3 style="color: crimson;">
+          ₹{{res2.price}}
+        </h3>
+        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+
+        <br><br><br>
+        <p>
+          <font size="5">
+              {{res2.description}}
+          </font>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+</body>
+
+</html>

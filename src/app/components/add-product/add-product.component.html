@@ -1,0 +1,43 @@
+<div class="container margin">
+    <div class="row" *ngIf="token">
+        <div class="col-md-6 offset-md-3">
+            <h3>Login</h3>
+            <form #loginForm (ngSubmit)="submitForm()">
+
+                <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input type="text" class="form-control" name="name" [(ngModel)]="name">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="text" class="form-control" name="image" [(ngModel)]="image">
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label><br>
+                    <select [(ngModel)]="category" name="category">
+                        <option value="Headsets">Headsets</option>
+                        <option value="Mobiles">Mobiles</option>
+                        <option value="Laptops">Laptops</option>
+                        <option value="Speakers">Speakers</option>
+                        <option value="Mouse">Mouse</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" name="description" [(ngModel)]="description">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" name="price" [(ngModel)]="price">
+                </div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="!token">
+        <button type="button" class="button is-large is-warning center" (click)="Login()">Login</button>
+    </div>
+</div>

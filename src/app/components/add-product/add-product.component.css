@@ -1,0 +1,12 @@
+.margin{
+    margin-top: 100px;
+}
+body{
+    font-size: 1.2rem;
+}
+select{
+    width: 100%;
+}
+.row{
+    margin-left: 200px;
+}

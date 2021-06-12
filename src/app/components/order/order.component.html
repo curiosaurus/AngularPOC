@@ -1,0 +1,34 @@
+<div class="container margin">
+<div class="row">
+    <h1>Order</h1>
+</div>
+
+<div class="row" *ngIf="!token">
+  <button type="button" class="button is-large is-warning center" (click)="Login()">Login</button>
+</div>
+
+<div *ngIf="token">
+  <div *ngIf="res2==0">
+    <h3 class="text-center">No Orders Yet</h3>
+  </div>
+  <div *ngFor="let order of res2">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of order.products">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3>{{order.id}}</h3>
+          <h4 class="card-name">
+            <a [routerLink]="['/product']" [queryParams]="{id:product.id}">{{ product.name }}</a>
+          </h4>
+          <h5>${{ product.price }}</h5>
+          <p class="card-text">{{ product.description}}</p>
+          <p class="card-text">qty : {{ product.orderItem.quantity }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="token">
+  <button type="button" class="button is-large is-warning center" (click)="Order()">Reload</button>
+</div>
+</div>
+    <!-- /.row -->
